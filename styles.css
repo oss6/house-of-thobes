@@ -17,6 +17,30 @@ body {
 }
 
 /**
+ * .btn
+ */
+
+.btn--footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  color: #93845e;
+  background-color: #fff;
+  width: 100%;
+  font-family: "Crimson Text", serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.5rem;
+}
+
+.btn--footer:hover {
+  background-color: #fffff0;
+}
+
+/**
  * #content
  */
 
@@ -66,19 +90,35 @@ body {
 
 @media screen and (min-width: 45rem) {
   .hero-banner {
-    position: relative;
+    position: static;
     height: 25rem;
-    padding: 0 5rem;
+  }
+
+  .hero-banner__inner {
+    position: relative;
+    width: 35rem;
+    margin: 0 auto;
   }
 
   .promo {
     position: absolute;
-    right: 20rem;
-    /* background-image: url(images/thobe-example.png); */
-    /* width: 3rem; */
-    height: 100%;
-    width: 20rem;
+    top: -2rem;
+    right: 0;
+    width: 15rem;
+    height: 22rem;
+    display: flex;
+    flex-direction: column-reverse;
+    background-image: url(images/thobe-example.png);
     background-size: cover;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+}
+
+@media screen and (min-width: 60rem) {
+  .hero-banner__inner {
+    width: 50rem;
   }
 }
 
@@ -199,26 +239,6 @@ body {
 .store-card__header--image {
   background-size: cover;
   height: 20rem;
-}
-
-.store-card__footer button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  cursor: pointer;
-  color: #93845e;
-  background-color: #fff;
-  width: 100%;
-  font-family: "Crimson Text", serif;
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 0.5rem;
-}
-
-.store-card__footer button:hover {
-  background-color: #fffff0;
 }
 
 .store-card__footer button svg {
