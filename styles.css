@@ -1,3 +1,35 @@
+/**
+ * animations
+ */
+
+@-webkit-keyframes slide-up {
+  100% {
+    opacity: 1;
+    top: -2rem;
+  }
+}
+
+@keyframes slide-up {
+  100% {
+    opacity: 1;
+    top: -2rem;
+  }
+}
+
+@-webkit-keyframes slide-right {
+  100% {
+    opacity: 1;
+    margin-left: 0;
+  }
+}
+
+@keyframes slide-right {
+  100% {
+    opacity: 1;
+    margin-left: 0;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -88,6 +120,10 @@ body {
   border-top: 4px solid #e3caab;
 }
 
+.hero-banner__inner .promo {
+  display: none;
+}
+
 @media screen and (min-width: 45rem) {
   .hero-banner {
     position: static;
@@ -100,9 +136,11 @@ body {
     margin: 0 auto;
   }
 
-  .promo {
+  .hero-banner__inner .promo {
     position: absolute;
-    top: -2rem;
+    opacity: 0;
+    display: block;
+    top: 0;
     right: 0;
     width: 15rem;
     height: 22rem;
@@ -113,6 +151,10 @@ body {
     border-radius: 10px;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
       0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    -webkit-animation: slide-up 0.7s forwards;
+    -webkit-animation-delay: 0.15s;
+    animation: slide-up 0.7s forwards;
+    animation-delay: 0.15s;
   }
 }
 
@@ -148,16 +190,19 @@ body {
 }
 
 @media screen and (min-width: 45rem) {
-  .hero-banner h1 {
+  .hero-banner h1,
+  .hero-banner h2 {
+    opacity: 0;
+    margin-left: -5rem;
     text-align: left;
+    -webkit-animation: slide-right 0.7s forwards;
+    -webkit-animation-delay: 0.15s;
+    animation: slide-right 0.7s forwards;
+    animation-delay: 0.15s;
   }
 
   .hero-banner h1 span {
     display: inline-block;
-  }
-
-  .hero-banner h2 {
-    text-align: left;
   }
 }
 
@@ -200,11 +245,12 @@ body {
 
 @media screen and (min-width: 35rem) {
   .store-cards {
+    flex-wrap: wrap;
     flex-direction: row;
   }
 
   .store-cards > .store-card {
-    flex-basis: 49%;
+    flex: 1 0 45%;
     margin-right: 1rem;
   }
 }
@@ -254,4 +300,20 @@ body {
 
 .contact-section {
   margin-top: 3rem;
+}
+
+.social-icons {
+  margin-top: 1.5rem;
+}
+
+.social-icons a {
+  text-decoration: none;
+}
+
+.social-icons svg {
+  width: 2rem;
+  height: 2rem;
+  color: #93845e;
+  fill: currentColor;
+  margin-right: 1rem;
 }
