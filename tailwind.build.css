@@ -123,6 +123,25 @@ body {
 }
 
 /**
+ * Spinner
+ */
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  border-top-color: #000;
+  animation: spinner 0.6s linear infinite;
+}
+
+/**
  * Modals
  */
 
@@ -170,7 +189,12 @@ body {
 }
 
 .modal > section {
-  @apply px-4 py-2 text-gray-800;
+  @apply flex
+    justify-around
+    items-center
+    px-4
+    py-2
+    text-gray-800;
 }
 
 .modal > footer {
@@ -182,8 +206,20 @@ body {
   @apply flex flex-col;
 }
 
+@media screen and (min-width: 45rem) {
+  .form-group {
+    @apply flex-row;
+  }
+}
+
 .input-group {
   @apply w-full mb-3;
+}
+
+@media screen and (min-width: 45rem) {
+  .input-group {
+    @apply mr-3;
+  }
 }
 
 .form-input {
@@ -230,19 +266,6 @@ body {
     left: 50%;
     transform: translateX(-50%);
   }
-
-  /* #content > div {
-    display: flex;
-  }
-
-  #store {
-    flex: 0 0 35rem;
-  }
-
-  #order {
-    margin-top: 0;
-    margin-left: 1rem;
-  } */
 }
 
 /**
@@ -504,6 +527,24 @@ body {
   height: 1rem;
   fill: currentColor;
   color: #93845e;
+}
+
+/**
+ * #gallery
+ */
+
+#gallery a:hover .overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#gallery .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: background-color 200ms;
 }
 
 /**
