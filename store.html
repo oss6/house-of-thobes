@@ -5,25 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Store - House of Thobes</title>
 
+    <!-- Deferred CSS -->
+    <link
+      rel="preload"
+      href="vendor/lightgallery/css/lightgallery.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="vendor/lightgallery/css/lightgallery.min.css"
+    /></noscript>
+
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+    /></noscript>
+
     <link
       href="https://fonts.googleapis.com/css?family=Crimson+Text|Playfair+Display:400,700,700i&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="vendor/lightgallery/css/lightgallery.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
-    />
     <link rel="stylesheet" href="styles.min.css" />
   </head>
   <body x-data="app()">
-    <!-- <template x-if="cart && cart.length > 0">
+    <nav class="app-container py-8 flex justify-center">
+      <ul
+        class="text-gold-800 text-center sm:text-left sm:flex sm:items-center"
+      >
+        <li class="sm:mr-6"><a href="index.html">Home</a></li>
+        <li class="sm:mr-6"><a href="store.html">Store</a></li>
+        <li class="sm:mr-6"><a href="#">Returns policy</a></li>
+        <li><a href="#">Contact us</a></li>
+      </ul>
+    </nav>
+
+    <template x-if="cart && cart.length > 0">
       <a
-        href="#order"
-        class="flex justify-center items-center fixed w-full py-1 text-center z-10 bg-gold-700 text-white"
+        href="#order-summary"
+        class="app-container flex justify-center items-center block py-1 text-center z-10 bg-gold-700 text-white"
       >
         <svg class="fill-current w-5 h-5 mr-3" viewBox="0 0 20 20">
           <path
@@ -41,18 +69,7 @@
           order.</span
         >
       </a>
-    </template> -->
-
-    <nav class="py-4 bg-gold-300">
-      <ul
-        class="text-gold-800 text-center sm:text-left sm:flex sm:items-center"
-      >
-        <li class="sm:mr-6 sm:ml-6"><a href="index.html">Home</a></li>
-        <li class="sm:mr-6"><a href="store.html">Store</a></li>
-        <li class="sm:mr-6"><a href="#">Returns policy</a></li>
-        <li><a href="#">Contact us</a></li>
-      </ul>
-    </nav>
+    </template>
 
     <div class="app-container">
       <section class="pt-10">
@@ -70,7 +87,7 @@
               style="background-image: url(images/adult-grey/side-2.jpg);"
             >
               <div class="store-card__header-inner">
-                <h1 class="font-bold">Men's grey Omani thobe</h1>
+                <h1 class="font-bold">Men's Silky Omani Grey Thobe</h1>
                 <p>£25</p>
               </div>
             </header>
@@ -90,7 +107,7 @@
               style="background-image: url(images/adult-navy/side-1.jpg);"
             >
               <div class="store-card__header-inner">
-                <h1>Men's navy Omani thobe</h1>
+                <h1>Men's Silky Omani Navy Thobe</h1>
                 <p>£25</p>
               </div>
             </header>
@@ -112,7 +129,7 @@
               "
             >
               <div class="store-card__header-inner">
-                <h1>Men's black Saudi collar thobe</h1>
+                <h1>Men's Saudi Collar Black Thobe</h1>
                 <p>£25</p>
               </div>
             </header>
@@ -134,7 +151,7 @@
               "
             >
               <div class="store-card__header-inner">
-                <h1>Men's white Saudi collar thobe</h1>
+                <h1>Men's Saudi Collar White Thobe</h1>
                 <p>£25</p>
               </div>
             </header>
@@ -154,8 +171,8 @@
               style="background-image: url(images/children-b-side.jpg);"
             >
               <div class="store-card__header-inner">
-                <h1>Boys black Omani thobe</h1>
-                <p>£16</p>
+                <h1>Boy's Silky Omani Black Thobe</h1>
+                <p>£15-20</p>
               </div>
             </header>
             <footer class="store-card__footer">
@@ -174,8 +191,8 @@
               style="background-image: url(images/teen-white/side-2.jpg);"
             >
               <div class="store-card__header-inner">
-                <h1>Boys white Omani thobe</h1>
-                <p>£16</p>
+                <h1>Boy's Silky Omani White Thobe</h1>
+                <p>£15-20</p>
               </div>
             </header>
             <footer class="store-card__footer">
@@ -199,21 +216,36 @@
         </h2>
 
         <template x-if="!cart || cart.length === 0">
-          <p class="text-gold-800">
+          <p class="text-gold-800 text-center">
             Your basket is empty. Please add items from the store.
           </p>
         </template>
 
         <div :class="{ 'hidden': !cart || cart.length === 0 }">
-          <template x-for="item in cart">
-            <div class="flex items-center mt-3">
-              <span
-                class="px-2 rounded-full mr-2 bg-gold-700 text-white"
-                x-text="item.count"
-              ></span>
-              <span class="mr-2" x-text="getProductItemTitle(item.id)"></span>
+          <template x-for="productItem in cart" :key="productItem.id">
+            <div
+              class="flex items-start justify-between mt-3 border border-gold-300 rounded px-3 py-2 my-3"
+            >
+              <div>
+                <p
+                  class="mr-2 text-lg"
+                  x-text="getProductItemTitle(productItem.id)"
+                ></p>
+                <template x-for="item in productItem.items" :key="item._id">
+                  <div class="flex items-center">
+                    <span
+                      x-text="item.count"
+                      class="bg-gold-800 text-sm text-white rounded-full px-2 mr-5"
+                    ></span>
+                    <p class="mr-3">
+                      Height: <span x-text="item.height"></span>
+                    </p>
+                    <p>Chest: <span x-text="item.chest"></span></p>
+                  </div>
+                </template>
+              </div>
               <button
-                @click="removeProductFromCart(item.id)"
+                @click="removeProductFromCart(productItem.id)"
                 title="Remove from cart"
               >
                 <svg
@@ -287,7 +319,7 @@
       </section>
     </div>
 
-    <footer class="pt-8 text-center">
+    <footer class="py-8 text-center">
       <div class="social-icons flex justify-center mb-4">
         <a
           href="https://twitter.com/houseofthobes1"
@@ -322,7 +354,18 @@
             ></path>
           </svg>
         </a>
-        <a href="mailto:houseofthobes1@gmail.com" title="Email">
+        <a href="https://www.snapchat.com" target="_blank" title="Snapchat">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12.206.793c.99 0 4.347.276 5.93 3.821.529 1.193.403 3.219.299 4.847l-.003.06c-.012.18-.022.345-.03.51.075.045.203.09.401.09.3-.016.659-.12 1.033-.301.165-.088.344-.104.464-.104.182 0 .359.029.509.09.45.149.734.479.734.838.015.449-.39.839-1.213 1.168-.089.029-.209.075-.344.119-.45.135-1.139.36-1.333.81-.09.224-.061.524.12.868l.015.015c.06.136 1.526 3.475 4.791 4.014.255.044.435.27.42.509 0 .075-.015.149-.045.225-.24.569-1.273.988-3.146 1.271-.059.091-.12.375-.164.57-.029.179-.074.36-.134.553-.076.271-.27.405-.555.405h-.03c-.135 0-.313-.031-.538-.074-.36-.075-.765-.135-1.273-.135-.3 0-.599.015-.913.074-.6.104-1.123.464-1.723.884-.853.599-1.826 1.288-3.294 1.288-.06 0-.119-.015-.18-.015h-.149c-1.468 0-2.427-.675-3.279-1.288-.599-.42-1.107-.779-1.707-.884-.314-.045-.629-.074-.928-.074-.54 0-.958.089-1.272.149-.211.043-.391.074-.54.074-.374 0-.523-.224-.583-.42-.061-.192-.09-.389-.135-.567-.046-.181-.105-.494-.166-.57-1.918-.222-2.95-.642-3.189-1.226-.031-.063-.052-.15-.055-.225-.015-.243.165-.465.42-.509 3.264-.54 4.73-3.879 4.791-4.02l.016-.029c.18-.345.224-.645.119-.869-.195-.434-.884-.658-1.332-.809-.121-.029-.24-.074-.346-.119-1.107-.435-1.257-.93-1.197-1.273.09-.479.674-.793 1.168-.793.146 0 .27.029.383.074.42.194.789.3 1.104.3.234 0 .384-.06.465-.105l-.046-.569c-.098-1.626-.225-3.651.307-4.837C7.392 1.077 10.739.807 11.727.807l.419-.015h.06z"
+            ></path>
+          </svg>
+        </a>
+        <a href="mailto:info@houseofthobes.co.uk" title="Email">
           <svg viewBox="0 0 20 20">
             <path
               d="M16.999,4.975L16.999,4.975C16.999,4.975,16.999,4.975,16.999,4.975c-0.419-0.4-0.979-0.654-1.604-0.654H4.606c-0.584,0-1.104,0.236-1.514,0.593C3.076,4.928,3.05,4.925,3.037,4.943C3.034,4.945,3.035,4.95,3.032,4.953C2.574,5.379,2.276,5.975,2.276,6.649v6.702c0,1.285,1.045,2.329,2.33,2.329h10.79c1.285,0,2.328-1.044,2.328-2.329V6.649C17.724,5.989,17.441,5.399,16.999,4.975z M15.396,5.356c0.098,0,0.183,0.035,0.273,0.055l-5.668,4.735L4.382,5.401c0.075-0.014,0.145-0.045,0.224-0.045H15.396z M16.688,13.351c0,0.712-0.581,1.294-1.293,1.294H4.606c-0.714,0-1.294-0.582-1.294-1.294V6.649c0-0.235,0.081-0.445,0.192-0.636l6.162,5.205c0.096,0.081,0.215,0.122,0.334,0.122c0.118,0,0.235-0.041,0.333-0.12l6.189-5.171c0.099,0.181,0.168,0.38,0.168,0.6V13.351z"
@@ -351,10 +394,111 @@
             </svg>
           </button>
         </header>
-        <section>
-          <div x-html="currentProduct.description" class="flex-1"></div>
-          <div id="gallery"></div>
-        </section>
+        <div style="max-height: 25rem; overflow: auto;">
+          <section
+            class="flex justify-around flex-col items-center px-4 py-2 text-gray-800 sm:flex-row"
+          >
+            <div>
+              <h1 class="font-bold">Description</h1>
+              <div x-html="currentProduct.description" class="flex-1"></div>
+
+              <h1 class="mt-3 font-bold">Items</h1>
+
+              <template x-for="item in currentProduct.items" :key="item._id">
+                <div
+                  class="flex justify-between items-start border rounded px-3 py-1 my-2"
+                >
+                  <div>
+                    <div
+                      x-show="item.height !== undefined && item.height !== null"
+                    >
+                      <label for="height">Height</label>
+                      <select id="height" x-model="item.height">
+                        <template
+                          x-for="height in products[currentProduct.id].sizes.heights"
+                          :key="height"
+                        >
+                          <option
+                            :key="height"
+                            :value="height"
+                            x-text="height"
+                          ></option>
+                        </template>
+                      </select>
+                    </div>
+
+                    <div
+                      x-show="item.chest !== undefined && item.chest !== null"
+                    >
+                      <label for="chest">Chest</label>
+                      <select id="chest" x-model="item.chest">
+                        <template
+                          x-for="size in products[currentProduct.id].sizes.chest"
+                          :key="size"
+                        >
+                          <option
+                            :key="size"
+                            :value="size"
+                            x-text="size"
+                          ></option>
+                        </template>
+                      </select>
+                    </div>
+
+                    <div class="flex items-center mr-3">
+                      <button
+                        class="mr-2"
+                        @click="item.count = item.count > 1 ? item.count - 1 : 1"
+                      >
+                        <svg
+                          class="fill-current text-gold-700 w-6 h-6"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            d="M14.776,10c0,0.239-0.195,0.434-0.435,0.434H5.658c-0.239,0-0.434-0.195-0.434-0.434s0.195-0.434,0.434-0.434h8.684C14.581,9.566,14.776,9.762,14.776,10 M18.25,10c0,4.558-3.693,8.25-8.25,8.25c-4.557,0-8.25-3.691-8.25-8.25c0-4.557,3.693-8.25,8.25-8.25C14.557,1.75,18.25,5.443,18.25,10 M17.382,10c0-4.071-3.312-7.381-7.382-7.381C5.929,2.619,2.619,5.93,2.619,10c0,4.07,3.311,7.382,7.381,7.382C14.07,17.383,17.382,14.07,17.382,10"
+                          ></path>
+                        </svg>
+                      </button>
+                      <span class="mr-2 text-lg" x-text="item.count"></span>
+                      <button @click="item.count += 1">
+                        <svg
+                          class="fill-current text-gold-700 w-6 h-6"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            d="M14.613,10c0,0.23-0.188,0.419-0.419,0.419H10.42v3.774c0,0.23-0.189,0.42-0.42,0.42s-0.419-0.189-0.419-0.42v-3.774H5.806c-0.23,0-0.419-0.189-0.419-0.419s0.189-0.419,0.419-0.419h3.775V5.806c0-0.23,0.189-0.419,0.419-0.419s0.42,0.189,0.42,0.419v3.775h3.774C14.425,9.581,14.613,9.77,14.613,10 M17.969,10c0,4.401-3.567,7.969-7.969,7.969c-4.402,0-7.969-3.567-7.969-7.969c0-4.402,3.567-7.969,7.969-7.969C14.401,2.031,17.969,5.598,17.969,10 M17.13,10c0-3.932-3.198-7.13-7.13-7.13S2.87,6.068,2.87,10c0,3.933,3.198,7.13,7.13,7.13S17.13,13.933,17.13,10"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <button
+                    @click="removeItemFromCurrentProduct(item)"
+                    title="Remove from cart"
+                  >
+                    <svg
+                      class="fill-current text-red-800 w-5 h-5"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M14.776,10c0,0.239-0.195,0.434-0.435,0.434H5.658c-0.239,0-0.434-0.195-0.434-0.434s0.195-0.434,0.434-0.434h8.684C14.581,9.566,14.776,9.762,14.776,10 M18.25,10c0,4.558-3.693,8.25-8.25,8.25c-4.557,0-8.25-3.691-8.25-8.25c0-4.557,3.693-8.25,8.25-8.25C14.557,1.75,18.25,5.443,18.25,10 M17.382,10c0-4.071-3.312-7.381-7.382-7.381C5.929,2.619,2.619,5.93,2.619,10c0,4.07,3.311,7.382,7.381,7.382C14.07,17.383,17.382,14.07,17.382,10"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </template>
+
+              <button
+                @click="addItemToCurrentProduct()"
+                class="uppercase tracking-wide text-xs mt-3 px-3 py-1 rounded text-gold-700 border border-gold-700"
+              >
+                Add item
+              </button>
+            </div>
+
+            <div id="gallery" class="mt-5 sm:mt-0"></div>
+          </section>
+        </div>
         <footer class="flex justify-between">
           <div>
             <button
@@ -373,32 +517,6 @@
             </button>
           </div>
           <div class="flex items-center">
-            <div class="flex items-center mr-3">
-              <button
-                class="mr-2"
-                @click="currentProduct.count = currentProduct.count > 1 ? currentProduct.count - 1 : 1"
-              >
-                <svg
-                  class="fill-current text-gold-700 w-6 h-6"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M14.776,10c0,0.239-0.195,0.434-0.435,0.434H5.658c-0.239,0-0.434-0.195-0.434-0.434s0.195-0.434,0.434-0.434h8.684C14.581,9.566,14.776,9.762,14.776,10 M18.25,10c0,4.558-3.693,8.25-8.25,8.25c-4.557,0-8.25-3.691-8.25-8.25c0-4.557,3.693-8.25,8.25-8.25C14.557,1.75,18.25,5.443,18.25,10 M17.382,10c0-4.071-3.312-7.381-7.382-7.381C5.929,2.619,2.619,5.93,2.619,10c0,4.07,3.311,7.382,7.381,7.382C14.07,17.383,17.382,14.07,17.382,10"
-                  ></path>
-                </svg>
-              </button>
-              <span class="mr-2 text-lg" x-text="currentProduct.count"></span>
-              <button @click="currentProduct.count += 1">
-                <svg
-                  class="fill-current text-gold-700 w-6 h-6"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M14.613,10c0,0.23-0.188,0.419-0.419,0.419H10.42v3.774c0,0.23-0.189,0.42-0.42,0.42s-0.419-0.189-0.419-0.42v-3.774H5.806c-0.23,0-0.419-0.189-0.419-0.419s0.189-0.419,0.419-0.419h3.775V5.806c0-0.23,0.189-0.419,0.419-0.419s0.42,0.189,0.42,0.419v3.775h3.774C14.425,9.581,14.613,9.77,14.613,10 M17.969,10c0,4.401-3.567,7.969-7.969,7.969c-4.402,0-7.969-3.567-7.969-7.969c0-4.402,3.567-7.969,7.969-7.969C14.401,2.031,17.969,5.598,17.969,10 M17.13,10c0-3.932-3.198-7.13-7.13-7.13S2.87,6.068,2.87,10c0,3.933,3.198,7.13,7.13,7.13S17.13,13.933,17.13,10"
-                  ></path>
-                </svg>
-              </button>
-            </div>
             <button
               @click="saveProductToCart()"
               class="flex items-center uppercase tracking-wide text-xs px-3 py-1 rounded text-white bg-gold-700"
@@ -417,6 +535,9 @@
         </footer>
       </div>
     </div>
+
+    <!-- For PurgeCSS -->
+    <span class="hidden w-8 h-8 z-10 relative absolute"></span>
 
     <script src="vendor/lightgallery/js/lightgallery.min.js"></script>
     <script src="dist/app.bundle.js"></script>

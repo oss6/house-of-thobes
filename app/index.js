@@ -1,22 +1,17 @@
 import 'alpinejs';
-import axios from 'axios';
-import toastr from 'toastr';
-
-const getCart = () => {
-  const cart = localStorage.getItem('house-of-thobes-cart');
-
-  return cart ? JSON.parse(cart) : [];
-};
-
-const setCart = cart => {
-  localStorage.setItem('house-of-thobes-cart', JSON.stringify(cart));
-};
+import cloneDeep from 'clone-deep';
+import 'whatwg-fetch';
+import { errorToast, successToast } from './toast';
 
 window.app = () => ({
   products: {
     'men-grey-omani': {
-      title: 'Men\'s grey Omani thobe',
+      title: 'Men\'s Silky Omani Grey Thobe',
       description: '<ul class="pl-5 list-disc"><li>Omani style.</li><li>Quality soft grey colour fabric.</li><li>Fabric: polyester, cotton, spun.</li></ul>',
+      sizes: {
+        heights: range(7, 54),
+        chest: ['M', 'L', 'XL']
+      },
       gallery: [
         'adult-grey/front.jpg',
         'adult-grey/front-close.jpg',
@@ -25,8 +20,12 @@ window.app = () => ({
       ]
     },
     'men-navy-omani': {
-      title: 'Men\'s navy Omani thobe',
+      title: 'Men\'s Silky Omani Navy Thobe',
       description: '<ul class="pl-5 list-disc"><li>Omani style.</li><li>Quality soft navy colour fabric.</li><li>Fabric: polyester, cotton, spun.</li></ul>',
+      sizes: {
+        heights: range(7, 54),
+        chest: ['M', 'L', 'XL']
+      },
       gallery: [
         'adult-navy/front.jpg',
         'adult-navy/front-close.jpg',
@@ -35,8 +34,12 @@ window.app = () => ({
       ]
     },
     'men-black-saudi': {
-      title: 'Men\'s black Saudi collar thobe',
+      title: 'Men\'s Saudi Collar Black Thobe',
       description: '<ul class="pl-5 list-disc"><li>Nice soft fabric in black colour.</li><li>Lightweight and comfortable to wear.</li><li>Double neck button and round sleeves.</li><li>One front pocket and two side pockets.</li><li>Easy to wash and iron.</li></ul>',
+      sizes: {
+        heights: range(11, 52),
+        chest: ['M', 'L', 'XL']
+      },
       gallery: [
         'adult-black-with-collar/front.jpg',
         'adult-black-with-collar/front-close-1.jpg',
@@ -45,8 +48,12 @@ window.app = () => ({
       ]
     },
     'men-white-saudi': {
-      title: 'Men\'s white Saudi collar thobe',
+      title: 'Men\'s Saudi Collar White Thobe',
       description: '<ul class="pl-5 list-disc"><li>Nice soft fabric in white colour.</li><li>Lightweight and comfortable to wear.</li><li>Double neck button and round sleeves.</li><li>One front pocket and two side pockets.</li><li>Easy to wash and iron.</li></ul>',
+      sizes: {
+        heights: range(11, 52),
+        chest: ['M', 'L', 'XL']
+      },
       gallery: [
         'adult-white-with-collar/front.jpg',
         'adult-white-with-collar/front-close.jpg',
@@ -54,8 +61,12 @@ window.app = () => ({
       ]
     },
     'boys-black-omani': {
-      title: 'Boys black Omani thobe',
+      title: 'Boy\'s Silky Omani Black Thobe',
       description: '<p>Omani style black thobe/jubbah for boys. Korean fabric has been used to give a better finish to the product and also to give it durability.</p><p>Sizes available from 32-50, suitable for children from the ages of 4 to 14.</p>',
+      sizes: {
+        heights: [],
+        chest: []
+      },
       gallery: [
         'children-b-side.jpg',
         'child-black/front.jpg',
@@ -66,8 +77,12 @@ window.app = () => ({
       ]
     },
     'boys-white-omani': {
-      title: 'Boys white Omani thobe',
+      title: 'Boy\'s Silky Omani Black Thobe',
       description: '<p>Omani style white thobe/jubbah for boys. Korean fabric has been used to give a better finish to the product and also to give it durability.</p><p>Sizes available from 32-50, suitable for children from the ages of 4 to 14.</p>',
+      sizes: {
+        heights: [],
+        chest: []
+      },
       gallery: [
         'teen-white/front.jpg',
         'teen-white/front-close.jpg',
@@ -81,7 +96,25 @@ window.app = () => ({
     id: '',
     title: '',
     description: '',
-    count: 1
+    items: []
+  },
+  addItemToCurrentProduct() {
+    this.currentProduct.items = [
+      ...this.currentProduct.items,
+      {
+        _id: uuidv4(),
+        count: 1,
+        height: this.products[this.currentProduct.id].sizes
+          ? this.products[this.currentProduct.id].sizes.heights[0]
+          : null,
+        chest: this.products[this.currentProduct.id].sizes
+          ? this.products[this.currentProduct.id].sizes.chest[0]
+          : null
+      }
+    ];
+  },
+  removeItemFromCurrentProduct(item) {
+    this.currentProduct.items = this.currentProduct.items.filter(i => i._id !== item._id);
   },
   form: {
     name: '',
@@ -102,13 +135,13 @@ window.app = () => ({
       id,
       title: this.products[id].title,
       description: this.products[id].description,
-      count: productItem ? productItem.count : 1
+      items: productItem ? cloneDeep(productItem.items) : []
     };
 
     const $gallery = document.getElementById('gallery');
 
     $gallery.innerHTML = this.products[id].gallery.map((src, index) => `
-      <a href="images/${src}" class="block relative ${index !== 0 ? 'hidden' : ''}">
+      <a data-download-url="false" href="images/${src}" class="block relative ${index !== 0 ? 'hidden' : ''}">
         <svg
           class="fill-current text-white w-8 h-8 absolute z-10"
           style="top: 50%; left: 50%; transform: translate(-50%, -50%);"
@@ -134,20 +167,26 @@ window.app = () => ({
     return this.products[id].title;
   },
   saveProductToCart() {
-    toastr.success('Added product item to cart.');
-
     this.productModalOpen = false;
 
     const productItem = this.cart.find(p => p.id === this.currentProduct.id);
 
+    const items = cloneDeep(this.currentProduct.items);
+
+    if (items.length === 0) {
+      return;
+    }
+
     if (productItem) {
-      productItem.count = this.currentProduct.count;
+      productItem.items = items;
     } else {
       this.cart.push({
         id: this.currentProduct.id,
-        count: this.currentProduct.count
+        items
       });
     }
+
+    successToast('Added product item to cart.');
 
     setCart(this.cart);
   },
@@ -158,24 +197,51 @@ window.app = () => ({
   reserveOrder() {
     this.form.loading = true;
 
-    axios.post('https://zu9s3r7y43.execute-api.eu-west-1.amazonaws.com/dev/house-of-thobes-mailer', {
-      name: this.form.name,
-      email: this.form.email,
-      phone: this.form.phone,
-      order: this.cart.map(item => ({
-        title: this.products[item.id].title,
-        count: item.count
-      }))
+    fetch('https://zu9s3r7y43.execute-api.eu-west-1.amazonaws.com/dev/house-of-thobes-mailer', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: this.form.name,
+        email: this.form.email,
+        phone: this.form.phone,
+        order: this.cart.map(productItem => ({
+          title: this.products[productItem.id].title,
+          items: productItem.items
+        }))
+      })
     }).then(_ => {
-      toastr.success('We successfully received your order! We will contact you as soon as possible.');
+      successToast('We successfully received your order! We will contact you as soon as possible.');
 
       this.form.reset();
       this.cart = [];
       setCart(this.cart);
     }).catch(_ => {
-      toastr.error('We could not process your order.');
+      errorToast('We could not process your order.');
 
       this.form.loading = false;
     });
   }
 });
+
+function getCart() {
+  const cart = localStorage.getItem('house-of-thobes-cart');
+
+  return cart ? JSON.parse(cart) : [];
+}
+
+function setCart(cart) {
+  localStorage.setItem('house-of-thobes-cart', JSON.stringify(cart));
+}
+
+function range(size, startAt = 0) {
+  return [...Array(size).keys()].map(i => i + startAt);
+}
+
+function uuidv4() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}

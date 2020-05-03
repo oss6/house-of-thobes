@@ -20,7 +20,7 @@ const config = {
     rules: [
       {
         test: /\.js$/,
-        include: [path.join(__dirname, 'register-app')],
+        include: [path.join(__dirname, 'app')],
         exclude: /node_modules/,
         use: {
           loader: "babel-loader"
