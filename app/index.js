@@ -10,7 +10,13 @@ window.app = () => ({
       description: '<ul class="pl-5 list-disc"><li>Omani style.</li><li>Quality soft grey colour fabric.</li><li>Fabric: polyester, cotton, spun.</li></ul>',
       sizes: {
         heights: [54, 56, 58],
-        chest: ['M', 'L', 'XL']
+        chest: ['M', 'L', 'XL'],
+        guide: [
+          ['Length', '54', '56', '58'],
+          ['Chest (M)', '21', '21', '21'],
+          ['Chest (L)', '23', '23', '23'],
+          ['Chest (XL)', '25', '25', '25']
+        ]
       },
       gallery: [
         'adult-grey/front.jpg',
@@ -24,7 +30,13 @@ window.app = () => ({
       description: '<ul class="pl-5 list-disc"><li>Omani style.</li><li>Quality soft navy colour fabric.</li><li>Fabric: polyester, cotton, spun.</li></ul>',
       sizes: {
         heights: [54, 56, 58],
-        chest: ['M', 'L', 'XL']
+        chest: ['M', 'L', 'XL'],
+        guide: [
+          ['Length', '54', '56', '58'],
+          ['Chest (M)', '21', '21', '21'],
+          ['Chest (L)', '23', '23', '23'],
+          ['Chest (XL)', '25', '25', '25']
+        ]
       },
       gallery: [
         'adult-navy/front.jpg',
@@ -38,7 +50,13 @@ window.app = () => ({
       description: '<ul class="pl-5 list-disc"><li>Omani style.</li><li>Quality soft white colour fabric.</li><li>Korean fabric: Polyester, Cotton, Spun.</li></ul>',
       sizes: {
         heights: [54, 56, 58],
-        chest: ['M', 'L', 'XL']
+        chest: ['M', 'L', 'XL'],
+        guide: [
+          ['Length', '54', '56', '58'],
+          ['Chest (M)', '21', '21', '21'],
+          ['Chest (L)', '23', '23', '23'],
+          ['Chest (XL)', '25', '25', '25']
+        ]
       },
       gallery: [
         'men-white-omani/front.jpg'
@@ -49,7 +67,13 @@ window.app = () => ({
       description: '<ul class="pl-5 list-disc"><li>Omani style.</li><li>Quality black navy colour fabric.</li><li>Fabric: Cotton.</li><li>Note: this is not a silky thobe.</li></ul>',
       sizes: {
         heights: [54, 56, 58],
-        chest: ['M', 'L', 'XL']
+        chest: ['M', 'L', 'XL'],
+        guide: [
+          ['Length', '54', '56', '58'],
+          ['Chest (M)', '21', '21', '21'],
+          ['Chest (L)', '23', '23', '23'],
+          ['Chest (XL)', '25', '25', '25']
+        ]
       },
       gallery: [
         'men-black-omani/front.jpg'
@@ -60,7 +84,13 @@ window.app = () => ({
       description: '<ul class="pl-5 list-disc"><li>Nice soft fabric in black colour.</li><li>Lightweight and comfortable to wear.</li><li>Double neck button and round sleeves.</li><li>One front pocket and two side pockets.</li><li>Easy to wash and iron.</li></ul>',
       sizes: {
         heights: [52, 54, 56, 58, 60],
-        chest: ['M', 'L', 'XL']
+        chest: ['M', 'L', 'XL'],
+        guide: [
+          ['Length', '54', '56', '58'],
+          ['Chest (M)', '20', '20', '20'],
+          ['Chest (L)', '22', '22', '22'],
+          ['Chest (XL)', '24', '24', '24']
+        ]
       },
       gallery: [
         'adult-black-with-collar/front.jpg',
@@ -74,7 +104,13 @@ window.app = () => ({
       description: '<ul class="pl-5 list-disc"><li>Nice soft fabric in white colour.</li><li>Lightweight and comfortable to wear.</li><li>Double neck button and round sleeves.</li><li>One front pocket and two side pockets.</li><li>Easy to wash and iron.</li></ul>',
       sizes: {
         heights: [52, 54, 56, 58, 60],
-        chest: ['M', 'L', 'XL']
+        chest: ['M', 'L', 'XL'],
+        guide: [
+          ['Length', '54', '56', '58'],
+          ['Chest (M)', '20', '20', '20'],
+          ['Chest (L)', '22', '22', '22'],
+          ['Chest (XL)', '24', '24', '24']
+        ]
       },
       gallery: [
         'adult-white-with-collar/front.jpg',
@@ -87,7 +123,7 @@ window.app = () => ({
       description: '<ul class="pl-5 list-disc"><li>Available in Red and Purple</li><li>Fabric: cotton</li></ul>',
       sizes: {
         heights: [],
-        chest: []
+        chest: ['M', 'L', 'XL']
       },
       gallery: [
         'men-moroccan-djellaba/back.jpg'
@@ -98,7 +134,7 @@ window.app = () => ({
       description: '<ul class="pl-5 list-disc"><li>Available in Black and Green</li><li>Perfect for the summer!</li><li>Fabric: Cotton</li></ul>',
       sizes: {
         heights: [],
-        chest: []
+        chest: ['M', 'L', 'XL']
       },
       gallery: [
         'men-moroccan-gandoura/black.jpg'
@@ -109,7 +145,7 @@ window.app = () => ({
       description: '<ul class="pl-5 list-disc"><li>Available in Plum and White</li><li>Perfect for the summer!</li><li>Fabric: Silky Cotton</li></ul>',
       sizes: {
         heights: [],
-        chest: []
+        chest: ['M', 'L', 'XL']
       },
       gallery: [
         'men-moroccan-gandoura/white.jpg'

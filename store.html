@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Store - House of Thobes</title>
 
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon-16x16.png"
+    />
+
     <!-- Deferred CSS -->
     <link
       rel="preload"
@@ -512,11 +530,41 @@
         </header>
         <div style="max-height: 25rem; overflow: auto;">
           <section
-            class="flex justify-around flex-col items-center px-4 py-2 text-gray-800 sm:flex-row"
+            class="flex justify-between flex-col items-center px-8 py-4 text-gray-800 sm:flex-row"
           >
             <div>
               <h1 class="font-bold">Description</h1>
               <div x-html="currentProduct.description" class="flex-1"></div>
+
+              <template
+                x-if="products[currentProduct.id] && products[currentProduct.id].sizes.guide"
+              >
+                <div>
+                  <h1 class="mt-3 font-bold">Size guide</h1>
+                  <table class="table-auto">
+                    <thead>
+                      <tr>
+                        <template
+                          x-for="head in products[currentProduct.id].sizes.guide[0]"
+                        >
+                          <th class="px-4 py-2" x-text="head"></th>
+                        </template>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <template
+                        x-for="row in products[currentProduct.id].sizes.guide.slice(1)"
+                      >
+                        <tr>
+                          <template x-for="col in row">
+                            <td class="border px-4 py-2" x-text="col"></td>
+                          </template>
+                        </tr>
+                      </template>
+                    </tbody>
+                  </table>
+                </div>
+              </template>
 
               <h1 class="mt-3 font-bold">Items</h1>
 
