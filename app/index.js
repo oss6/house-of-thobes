@@ -9,7 +9,7 @@ window.app = () => ({
       title: 'Men\'s Silky Omani Grey Thobe',
       description: '<ul class="pl-5 list-disc"><li>Omani style.</li><li>Quality soft grey colour fabric.</li><li>Fabric: polyester, cotton, spun.</li></ul>',
       sizes: {
-        heights: range(7, 54),
+        heights: [54, 56, 58],
         chest: ['M', 'L', 'XL']
       },
       gallery: [
@@ -23,7 +23,7 @@ window.app = () => ({
       title: 'Men\'s Silky Omani Navy Thobe',
       description: '<ul class="pl-5 list-disc"><li>Omani style.</li><li>Quality soft navy colour fabric.</li><li>Fabric: polyester, cotton, spun.</li></ul>',
       sizes: {
-        heights: range(7, 54),
+        heights: [54, 56, 58],
         chest: ['M', 'L', 'XL']
       },
       gallery: [
@@ -33,11 +33,33 @@ window.app = () => ({
         'adult-navy/back.jpg'
       ]
     },
+    'men-white-omani': {
+      title: 'Men\'s Silky Omani White Thobe',
+      description: '<ul class="pl-5 list-disc"><li>Omani style.</li><li>Quality soft white colour fabric.</li><li>Korean fabric: Polyester, Cotton, Spun.</li></ul>',
+      sizes: {
+        heights: [54, 56, 58],
+        chest: ['M', 'L', 'XL']
+      },
+      gallery: [
+        'men-white-omani/front.jpg'
+      ]
+    },
+    'men-black-omani': {
+      title: 'Men\'s Omani Black Thobe',
+      description: '<ul class="pl-5 list-disc"><li>Omani style.</li><li>Quality black navy colour fabric.</li><li>Fabric: Cotton.</li><li>Note: this is not a silky thobe.</li></ul>',
+      sizes: {
+        heights: [54, 56, 58],
+        chest: ['M', 'L', 'XL']
+      },
+      gallery: [
+        'men-black-omani/front.jpg'
+      ]
+    },
     'men-black-saudi': {
       title: 'Men\'s Saudi Collar Black Thobe',
       description: '<ul class="pl-5 list-disc"><li>Nice soft fabric in black colour.</li><li>Lightweight and comfortable to wear.</li><li>Double neck button and round sleeves.</li><li>One front pocket and two side pockets.</li><li>Easy to wash and iron.</li></ul>',
       sizes: {
-        heights: range(11, 52),
+        heights: [52, 54, 56, 58, 60],
         chest: ['M', 'L', 'XL']
       },
       gallery: [
@@ -51,13 +73,46 @@ window.app = () => ({
       title: 'Men\'s Saudi Collar White Thobe',
       description: '<ul class="pl-5 list-disc"><li>Nice soft fabric in white colour.</li><li>Lightweight and comfortable to wear.</li><li>Double neck button and round sleeves.</li><li>One front pocket and two side pockets.</li><li>Easy to wash and iron.</li></ul>',
       sizes: {
-        heights: range(11, 52),
+        heights: [52, 54, 56, 58, 60],
         chest: ['M', 'L', 'XL']
       },
       gallery: [
         'adult-white-with-collar/front.jpg',
         'adult-white-with-collar/front-close.jpg',
         'adult-white-with-collar/side-1.jpg'
+      ]
+    },
+    'men-moroccan-djellaba': {
+      title: 'Men\'s Moroccan Djellaba',
+      description: '<ul class="pl-5 list-disc"><li>Available in Red and Purple</li><li>Fabric: cotton</li></ul>',
+      sizes: {
+        heights: [],
+        chest: []
+      },
+      gallery: [
+        'men-moroccan-djellaba/back.jpg'
+      ]
+    },
+    'men-moroccan-plain-gandoura': {
+      title: 'Men\'s Plain Short Sleeved Moroccan Gandoura',
+      description: '<ul class="pl-5 list-disc"><li>Available in Black and Green</li><li>Perfect for the summer!</li><li>Fabric: Cotton</li></ul>',
+      sizes: {
+        heights: [],
+        chest: []
+      },
+      gallery: [
+        'men-moroccan-gandoura/black.jpg'
+      ]
+    },
+    'men-moroccan-striped-gandoura': {
+      title: 'Men\'s Stripy Short Sleeved Moroccan Gandoura',
+      description: '<ul class="pl-5 list-disc"><li>Available in Plum and White</li><li>Perfect for the summer!</li><li>Fabric: Silky Cotton</li></ul>',
+      sizes: {
+        heights: [],
+        chest: []
+      },
+      gallery: [
+        'men-moroccan-gandoura/white.jpg'
       ]
     },
     'boys-black-omani': {

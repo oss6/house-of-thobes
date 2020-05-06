@@ -43,8 +43,10 @@
       >
         <li class="sm:mr-6"><a href="index.html">Home</a></li>
         <li class="sm:mr-6"><a href="store.html">Store</a></li>
-        <li class="sm:mr-6"><a href="#">Returns policy</a></li>
-        <li><a href="#">Contact us</a></li>
+        <li class="sm:mr-6">
+          <a href="delivery-policy.html">Delivery Policy</a>
+        </li>
+        <li><a href="returns-policy.html">Returns Policy</a></li>
       </ul>
     </nav>
 
@@ -80,6 +82,8 @@
           Choose from a variety of thobes for boys and men, in different styles
         </h2>
 
+        <h3 class="text-center text-lg uppercase mt-8 tracking-wide">Men's</h3>
+
         <div class="store-cards">
           <div class="store-card">
             <header
@@ -114,6 +118,46 @@
             <footer class="store-card__footer">
               <button
                 @click="openProductModal('men-navy-omani')"
+                class="btn btn--footer"
+              >
+                See more
+              </button>
+            </footer>
+          </div>
+
+          <div class="store-card">
+            <header
+              class="store-card__header store-card__header--image"
+              style="background-image: url(images/men-white-omani/front.jpg);"
+            >
+              <div class="store-card__header-inner">
+                <h1>Men's Silky Omani White Thobe</h1>
+                <p>£25</p>
+              </div>
+            </header>
+            <footer class="store-card__footer">
+              <button
+                @click="openProductModal('men-white-omani')"
+                class="btn btn--footer"
+              >
+                See more
+              </button>
+            </footer>
+          </div>
+
+          <div class="store-card">
+            <header
+              class="store-card__header store-card__header--image"
+              style="background-image: url(images/men-black-omani/front.jpg);"
+            >
+              <div class="store-card__header-inner">
+                <h1>Men's Omani Black Thobe</h1>
+                <p>£25</p>
+              </div>
+            </header>
+            <footer class="store-card__footer">
+              <button
+                @click="openProductModal('men-black-omani')"
                 class="btn btn--footer"
               >
                 See more
@@ -165,6 +209,76 @@
             </footer>
           </div>
 
+          <div class="store-card">
+            <header
+              class="store-card__header store-card__header--image"
+              style="
+                background-image: url(images/men-moroccan-djellaba/back.jpg);
+              "
+            >
+              <div class="store-card__header-inner">
+                <h1>Men's Moroccan Djellaba</h1>
+                <p>£30</p>
+              </div>
+            </header>
+            <footer class="store-card__footer">
+              <button
+                @click="openProductModal('men-moroccan-djellaba')"
+                class="btn btn--footer"
+              >
+                See more
+              </button>
+            </footer>
+          </div>
+
+          <div class="store-card">
+            <header
+              class="store-card__header store-card__header--image"
+              style="
+                background-image: url(images/men-moroccan-gandoura/black.jpg);
+              "
+            >
+              <div class="store-card__header-inner">
+                <h1>Men's Plain Short Sleeved Moroccan Gandoura</h1>
+                <p>£30</p>
+              </div>
+            </header>
+            <footer class="store-card__footer">
+              <button
+                @click="openProductModal('men-moroccan-plain-gandoura')"
+                class="btn btn--footer"
+              >
+                See more
+              </button>
+            </footer>
+          </div>
+
+          <div class="store-card" style="flex: 0 1 47.5%;">
+            <header
+              class="store-card__header store-card__header--image"
+              style="
+                background-image: url(images/men-moroccan-gandoura/white.jpg);
+              "
+            >
+              <div class="store-card__header-inner">
+                <h1>Men's Stripy Short Sleeved Moroccan Gandoura</h1>
+                <p>£30</p>
+              </div>
+            </header>
+            <footer class="store-card__footer">
+              <button
+                @click="openProductModal('men-moroccan-striped-gandoura')"
+                class="btn btn--footer"
+              >
+                See more
+              </button>
+            </footer>
+          </div>
+        </div>
+
+        <h3 class="text-center text-lg uppercase mt-8 tracking-wide">Boys'</h3>
+
+        <div class="store-cards">
           <div class="store-card">
             <header
               class="store-card__header store-card__header--image"
@@ -237,10 +351,12 @@
                       x-text="item.count"
                       class="bg-gold-800 text-sm text-white rounded-full px-2 mr-5"
                     ></span>
-                    <p class="mr-3">
+                    <p class="mr-3" x-show="item.height">
                       Height: <span x-text="item.height"></span>
                     </p>
-                    <p>Chest: <span x-text="item.chest"></span></p>
+                    <p x-show="item.chest">
+                      Chest: <span x-text="item.chest"></span>
+                    </p>
                   </div>
                 </template>
               </div>
@@ -538,6 +654,7 @@
 
     <!-- For PurgeCSS -->
     <span class="hidden w-8 h-8 z-10 relative absolute"></span>
+    <span class="hidden pl-5 list-disc"></span>
 
     <script src="vendor/lightgallery/js/lightgallery.min.js"></script>
     <script src="dist/app.bundle.js"></script>
