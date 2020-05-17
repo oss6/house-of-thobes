@@ -5,24 +5,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:tailwind": "npx tailwind build ./tailwind.build.css -c tailwind.config.js -o ./_build/css/styles.css && npx uglifycss ./_build/css/styles.css --output ./styles.min.css",
-    "build:app": "webpack --mode production",
-    "build": "npm run build:tailwind && npm run build:app"
+    "build": "npx tailwind build ./tailwind.build.css -c tailwind.config.js -o ./_build/css/styles.css && npx uglifycss ./_build/css/styles.css --output ./styles.min.css"
   },
   "author": "Ossama Edbali <ossedb@gmail.com>",
   "dependencies": {
-    "alpinejs": "^2.2.1",
-    "axios": "^0.19.2",
-    "tailwindcss": "^1.2.0",
-    "toastr": "^2.1.4"
+    "tailwindcss": "^1.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.0",
-    "@babel/preset-react": "^7.9.4",
-    "babel-loader": "^8.1.0",
-    "uglifycss": "0.0.29",
-    "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
+    "uglifycss": "0.0.29"
   }
 }

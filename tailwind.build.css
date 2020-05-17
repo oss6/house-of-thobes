@@ -112,6 +112,23 @@ header h1 span.thobes {
 }
 
 /**
+ * .app-container
+ */
+
+.app-container {
+  width: 100%;
+  padding: 0 1.5rem;
+}
+
+@media screen and (min-width: 45rem) {
+  .app-container {
+    width: 38rem;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+
+/**
  * .btn
  */
 
