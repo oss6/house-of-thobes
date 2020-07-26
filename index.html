@@ -44,6 +44,21 @@
         color: #fff;
         border-top: 4px solid #e3caab;
       }
+
+      #container {
+        width: 100%;
+      }
+
+      @media screen and (min-width: 640px) {
+        #container {
+          max-width: 600px;
+          margin: 0 auto;
+        }
+      }
+
+      #promos > div {
+        margin-bottom: 1rem;
+      }
     </style>
   </head>
   <body>
@@ -57,10 +72,8 @@
       </ul>
     </nav>
 
-    <div
-      class="flex flex-col py-8 h-full justify-center items-center md:p-0 md:flex-row"
-    >
-      <header class="mb-12 md:mr-32 md:mb-0">
+    <div id="container" class="py-8">
+      <header class="mt-24 mb-12">
         <h1>
           <span class="house">House</span>
           <span class="of">of</span>
@@ -70,7 +83,7 @@
           Place your order by contacting us via:
         </p>
 
-        <div class="flex">
+        <div class="flex justify-center">
           <div class="social-icons mr-5">
             <a href="tel:+447367122094">
               <svg
@@ -127,276 +140,615 @@
         </div>
       </header>
 
-      <div id="promo">
-        <a
-          class="relative block"
-          href="images/mwp/mwp01.jpg"
-          data-download-url="false"
-        >
-          <img
-            class="rounded"
-            style="height: 15rem;"
-            src="images/mwp/mwp01.jpg"
-            alt=""
-          />
-          <span
-            class="block absolute bg-gold-800 w-full text-center py-1 uppercase tracking-wide text-sm rounded-b"
-            style="bottom: 0;"
-            >See more</span
+      <div
+        id="promos"
+        class="flex flex-wrap flex-col items-center justify-center md:flex-row"
+      >
+        <div id="men-promo" class="md:mr-3">
+          <a
+            class="relative block"
+            href="images/mwp/mwp01.jpg"
+            data-download-url="false"
+            data-sub-html="<h4>Men's White Silky Omani Thobe</h4><p>Fabric: Polyester</p>"
           >
-        </a>
-        <a data-download-url="false" href="images/mwp/mwp02.jpg" class="hidden">
-          <img src="images/mwp/mwp02.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mwp/mwp03.jpg" class="hidden">
-          <img src="images/mwp/mwp03.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mwp/mwp04.jpg" class="hidden">
-          <img src="images/mwp/mwp04.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mwd/mwd01.jpg" class="hidden">
-          <img src="images/mwd/mwd01.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mwd/mwd02.jpg" class="hidden">
-          <img src="images/mwd/mwd02.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mwd/mwd03.jpg" class="hidden">
-          <img src="images/mwd/mwd03.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mwc/mwc01.jpg" class="hidden">
-          <img src="images/mwc/mwc01.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mwc/mwc02.jpg" class="hidden">
-          <img src="images/mwc/mwc02.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mdp/mdp01.jpg" class="hidden">
-          <img src="images/mdp/mdp01.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mdp/mdp02.jpg" class="hidden">
-          <img src="images/mdp/mdp02.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mgp/mgp01.jpg" class="hidden">
-          <img src="images/mgp/mgp01.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mgp/mgp02.jpg" class="hidden">
-          <img src="images/mgp/mgp02.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mbp/mbp01.jpg" class="hidden">
-          <img src="images/mbp/mbp01.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mbp/mbp02.jpg" class="hidden">
-          <img src="images/mbp/mbp02.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mbp/mbp03.jpg" class="hidden">
-          <img src="images/mbp/mbp03.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mbp/mbp04.jpg" class="hidden">
-          <img src="images/mbp/mbp04.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mbp/mbp05.jpg" class="hidden">
-          <img src="images/mbp/mbp05.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mrp/mrp01.jpg" class="hidden">
-          <img src="images/mrp/mrp01.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mrp/mrp02.jpg" class="hidden">
-          <img src="images/mrp/mrp02.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mrp/mrp03.jpg" class="hidden">
-          <img src="images/mrp/mrp03.jpg" alt="" />
-        </a>
-        <a
-          data-download-url="false"
-          href="images/kaffieh/k01.jpg"
-          class="hidden"
-        >
-          <img src="images/kaffieh/k01.jpg" alt="" />
-        </a>
-        <a
-          data-download-url="false"
-          href="images/kaffieh/k02.jpg"
-          class="hidden"
-        >
-          <img src="images/kaffieh/k02.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/bwc/bwc01.jpg" class="hidden">
-          <img src="images/bwc/bwc01.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/bdp/bdp01.jpg" class="hidden">
-          <img src="images/bdp/bdp01.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/bdp/bdp02.jpg" class="hidden">
-          <img src="images/bdp/bdp02.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/bbp/bbp01.jpg" class="hidden">
-          <img src="images/bbp/bbp01.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/bbc/bbc01.jpg" class="hidden">
-          <img src="images/bbc/bbc01.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/bbc/bbc02.jpg" class="hidden">
-          <img src="images/bbc/bbc02.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/kufi/k01.jpg" class="hidden">
-          <img src="images/kufi/k01.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/kufi/k02.jpg" class="hidden">
-          <img src="images/kufi/k02.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mats/m01.jpg" class="hidden">
-          <img src="images/mats/m01.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mats/m02.jpg" class="hidden">
-          <img src="images/mats/m02.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mats/m03.jpg" class="hidden">
-          <img src="images/mats/m03.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mats/m04.jpg" class="hidden">
-          <img src="images/mats/m04.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mats/m05.jpg" class="hidden">
-          <img src="images/mats/m05.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mats/m06.jpg" class="hidden">
-          <img src="images/mats/m06.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mats/m07.jpg" class="hidden">
-          <img src="images/mats/m07.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mats/m08.jpg" class="hidden">
-          <img src="images/mats/m08.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mats/m09.jpg" class="hidden">
-          <img src="images/mats/m09.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mats/m10.jpg" class="hidden">
-          <img src="images/mats/m10.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mats/m11.jpg" class="hidden">
-          <img src="images/mats/m11.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mats/m12.jpg" class="hidden">
-          <img src="images/mats/m12.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mats/m13.jpg" class="hidden">
-          <img src="images/mats/m13.jpg" alt="" />
-        </a>
-        <a data-download-url="false" href="images/mats/m14.jpg" class="hidden">
-          <img src="images/mats/m14.jpg" alt="" />
-        </a>
-        <a
-          data-download-url="false"
-          href="images/tasabeeh/t01.jpg"
-          class="hidden"
-        >
-          <img src="images/tasabeeh/t01.jpg" alt="" />
-        </a>
-        <a
-          data-download-url="false"
-          href="images/tasabeeh/t02.jpg"
-          class="hidden"
-        >
-          <img src="images/tasabeeh/t02.jpg" alt="" />
-        </a>
-        <a
-          data-download-url="false"
-          href="images/tasabeeh/t03.jpg"
-          class="hidden"
-        >
-          <img src="images/tasabeeh/t03.jpg" alt="" />
-        </a>
-        <a
-          data-download-url="false"
-          href="images/tasabeeh/t04.jpg"
-          class="hidden"
-        >
-          <img src="images/tasabeeh/t04.jpg" alt="" />
-        </a>
-        <a
-          data-download-url="false"
-          href="images/tasabeeh/t05.jpg"
-          class="hidden"
-        >
-          <img src="images/tasabeeh/t05.jpg" alt="" />
-        </a>
-        <a
-          data-download-url="false"
-          href="images/tasabeeh/t06.jpg"
-          class="hidden"
-        >
-          <img src="images/tasabeeh/t06.jpg" alt="" />
-        </a>
-        <a
-          data-download-url="false"
-          href="images/tasabeeh/t07.jpg"
-          class="hidden"
-        >
-          <img src="images/tasabeeh/t07.jpg" alt="" />
-        </a>
-        <a
-          data-download-url="false"
-          href="images/tasabeeh/t08.jpg"
-          class="hidden"
-        >
-          <img src="images/tasabeeh/t08.jpg" alt="" />
-        </a>
-        <a
-          data-download-url="false"
-          href="images/tasabeeh/t09.jpg"
-          class="hidden"
-        >
-          <img src="images/tasabeeh/t09.jpg" alt="" />
-        </a>
-        <a
-          data-download-url="false"
-          href="images/tasabeeh/t10.jpg"
-          class="hidden"
-        >
-          <img src="images/tasabeeh/t10.jpg" alt="" />
-        </a>
-        <a
-          data-download-url="false"
-          href="images/tasabeeh/t11.jpg"
-          class="hidden"
-        >
-          <img src="images/tasabeeh/t11.jpg" alt="" />
-        </a>
-        <a
-          data-download-url="false"
-          href="images/tasabeeh/t12.jpg"
-          class="hidden"
-        >
-          <img src="images/tasabeeh/t12.jpg" alt="" />
-        </a>
-        <a
-          data-download-url="false"
-          href="images/counter/c01.jpg"
-          class="hidden"
-        >
-          <img src="images/counter/c01.jpg" alt="" />
-        </a>
-        <a
-          data-download-url="false"
-          href="images/counter/c02.jpg"
-          class="hidden"
-        >
-          <img src="images/counter/c02.jpg" alt="" />
-        </a>
-        <a
-          data-download-url="false"
-          href="images/counter/c03.jpg"
-          class="hidden"
-        >
-          <img src="images/counter/c03.jpg" alt="" />
-        </a>
+            <div
+              class="bg-gold-700 text-gold-100 rounded-t text-center py-2 uppercase tracking-wide"
+            >
+              Men's Thobes
+            </div>
+            <img
+              class="rounded-b"
+              style="width: 15rem;"
+              src="images/mwp/mwp01.jpg"
+              alt=""
+            />
+            <span
+              class="block absolute bg-gold-800 w-full text-center py-1 uppercase tracking-wide text-sm rounded-b"
+              style="bottom: 0;"
+              >See more</span
+            >
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Men's White Silky Omani Thobe</h4><p>Fabric: Polyester</p>"
+            href="images/mwp/mwp02.jpg"
+            class="hidden"
+          >
+            <img src="images/mwp/mwp02.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Men's White Silky Omani Thobe</h4><p>Fabric: Polyester</p>"
+            href="images/mwp/mwp03.jpg"
+            class="hidden"
+          >
+            <img src="images/mwp/mwp03.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Men's White Silky Omani Thobe</h4><p>Fabric: Polyester</p>"
+            href="images/mwp/mwp04.jpg"
+            class="hidden"
+          >
+            <img src="images/mwp/mwp04.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Men's White Silky Omani Thobe with tassle</h4><p>Fabric: Polyester<br>Chest zip and buttoned tassle (detachable)</p>"
+            href="images/mwd/mwd01.jpg"
+            class="hidden"
+          >
+            <img src="images/mwd/mwd01.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Men's White Silky Omani Thobe with tassle</h4><p>Fabric: Polyester<br>Chest zip and buttoned tassle (detachable)</p>"
+            href="images/mwd/mwd02.jpg"
+            class="hidden"
+          >
+            <img src="images/mwd/mwd02.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Men's White Silky Omani Thobe with tassle</h4><p>Fabric: Polyester<br>Chest zip and buttoned tassle (detachable)</p>"
+            href="images/mwd/mwd03.jpg"
+            class="hidden"
+          >
+            <img src="images/mwd/mwd03.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Men's White Saudi Collar Thobe</h4><p>Fabric: Polyester</p>"
+            href="images/mwc/mwc01.jpg"
+            class="hidden"
+          >
+            <img src="images/mwc/mwc01.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Men's White Saudi Collar Thobe</h4><p>Fabric: Polyester</p>"
+            href="images/mwc/mwc02.jpg"
+            class="hidden"
+          >
+            <img src="images/mwc/mwc02.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Men's Black Non Silky Omani Thobe</h4><p>Fabric: Cotton</p>"
+            href="images/mdp/mdp01.jpg"
+            class="hidden"
+          >
+            <img src="images/mdp/mdp01.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Men's Black Non Silky Omani Thobe</h4><p>Fabric: Cotton</p>"
+            href="images/mdp/mdp02.jpg"
+            class="hidden"
+          >
+            <img src="images/mdp/mdp02.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Men's Light Grey Silky Omani Thobe</h4><p>Fabric: Polyester</p>"
+            href="images/mgp/mgp01.jpg"
+            class="hidden"
+          >
+            <img src="images/mgp/mgp01.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Men's Light Grey Silky Omani Thobe</h4><p>Fabric: Polyester</p>"
+            href="images/mgp/mgp02.jpg"
+            class="hidden"
+          >
+            <img src="images/mgp/mgp02.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Men's Navy Non Silky Omani Thobe</h4><p>Fabric: Cotton</p>"
+            href="images/mbp/mbp01.jpg"
+            class="hidden"
+          >
+            <img src="images/mbp/mbp01.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Men's Navy Non Silky Omani Thobe</h4><p>Fabric: Cotton</p>"
+            href="images/mbp/mbp02.jpg"
+            class="hidden"
+          >
+            <img src="images/mbp/mbp02.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Men's Navy Non Silky Omani Thobe</h4><p>Fabric: Cotton</p>"
+            href="images/mbp/mbp03.jpg"
+            class="hidden"
+          >
+            <img src="images/mbp/mbp03.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Men's Navy Non Silky Omani Thobe</h4><p>Fabric: Cotton</p>"
+            href="images/mbp/mbp04.jpg"
+            class="hidden"
+          >
+            <img src="images/mbp/mbp04.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Men's Navy Non Silky Omani Thobe</h4><p>Fabric: Cotton</p>"
+            href="images/mbp/mbp05.jpg"
+            class="hidden"
+          >
+            <img src="images/mbp/mbp05.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Men's Burgundy Silky Omani Thobe</h4><p>Fabric: Polyester</p>"
+            href="images/mrp/mrp01.jpg"
+            class="hidden"
+          >
+            <img src="images/mrp/mrp01.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Men's Burgundy Silky Omani Thobe</h4><p>Fabric: Polyester</p>"
+            href="images/mrp/mrp02.jpg"
+            class="hidden"
+          >
+            <img src="images/mrp/mrp02.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Men's Burgundy Silky Omani Thobe</h4><p>Fabric: Polyester</p>"
+            href="images/mrp/mrp03.jpg"
+            class="hidden"
+          >
+            <img src="images/mrp/mrp03.jpg" alt="" />
+          </a>
+        </div>
+
+        <div id="boys-promo" class="md:mr-3">
+          <a
+            class="relative block"
+            href="images/bbc/bbc01.jpg"
+            data-download-url="false"
+            data-sub-html="<h4>Boy's Black Saudi Collar Thobe</h4><p>Fabric: Polyester<br>Sizes available for ages 4-14 years (approximately)</p>"
+          >
+            <div
+              class="bg-gold-700 text-gold-100 rounded-t text-center py-2 uppercase tracking-wide"
+            >
+              Boys Thobes
+            </div>
+            <img
+              class="rounded-b"
+              style="width: 15rem;"
+              src="images/bbc/bbc01.jpg"
+              alt=""
+            />
+            <span
+              class="block absolute bg-gold-800 w-full text-center py-1 uppercase tracking-wide text-sm rounded-b"
+              style="bottom: 0;"
+              >See more</span
+            >
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Boy's Black Saudi Collar Thobe</h4><p>Fabric: Polyester<br>Sizes available for ages 4-14 years (approximately)</p>"
+            href="images/bbc/bbc02.jpg"
+            class="hidden"
+          >
+            <img src="images/bbc/bbc02.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Boy's White Saudi Collar Thobe</h4><p>Fabric: Polyester<br>Sizes available for ages 1-14 years (approximately)</p>"
+            href="images/bwc/bwc01.jpg"
+            class="hidden"
+          >
+            <img src="images/bwc/bwc01.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Boy's Silky Omani Thobe in White and Black</h4><p>Fabric: Polyester<br>Sizes available for ages 4-14 years (approximately)</p>"
+            href="images/bdp/bdp01.jpg"
+            class="hidden"
+          >
+            <img src="images/bdp/bdp01.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Boy's Silky Omani Thobe in White and Black</h4><p>Fabric: Polyester<br>Sizes available for ages 4-14 years (approximately)</p>"
+            href="images/bdp/bdp02.jpg"
+            class="hidden"
+          >
+            <img src="images/bdp/bdp02.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Boy's Navy Silky Omani Thobe</h4><p>Fabric: Polyester<br>Sizes available for ages 4-14 years (approximately)</p>"
+            href="images/bbp/bbp01.jpg"
+            class="hidden"
+          >
+            <img src="images/bbp/bbp01.jpg" alt="" />
+          </a>
+        </div>
+
+        <div id="kaffieh-promo" class="md:mr-3">
+          <a
+            class="relative block"
+            href="images/kaffieh/k01.jpg"
+            data-download-url="false"
+            data-sub-html="<h4>Black and White Shemagh Scarf</h4><p>Fabric: Cotton</p>"
+          >
+            <div
+              class="bg-gold-700 text-gold-100 rounded-t text-center py-2 uppercase tracking-wide"
+            >
+              Shemagh Scarfs
+            </div>
+            <img
+              class="rounded-b"
+              style="width: 15rem;"
+              src="images/kaffieh/k01.jpg"
+              alt=""
+            />
+            <span
+              class="block absolute bg-gold-800 w-full text-center py-1 uppercase tracking-wide text-sm rounded-b"
+              style="bottom: 0;"
+              >See more</span
+            >
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Red and White Shemagh Scarf</h4><p>Fabric: Cotton</p>"
+            href="images/kaffieh/k02.jpg"
+            class="hidden"
+          >
+            <img src="images/kaffieh/k02.jpg" alt="" />
+          </a>
+        </div>
+
+        <div id="kufi-promo" class="md:mr-3">
+          <a
+            class="relative block"
+            href="images/kufi/k01.jpg"
+            data-download-url="false"
+            data-sub-html="<h4>Men's Prayer Hats</h4>"
+          >
+            <div
+              class="bg-gold-700 text-gold-100 rounded-t text-center py-2 uppercase tracking-wide"
+            >
+              Men's Prayer Hats
+            </div>
+            <img
+              class="rounded-b"
+              style="width: 15rem;"
+              src="images/kufi/k01.jpg"
+              alt=""
+            />
+            <span
+              class="block absolute bg-gold-800 w-full text-center py-1 uppercase tracking-wide text-sm rounded-b"
+              style="bottom: 0;"
+              >See more</span
+            >
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Men's Prayer Hats</h4>"
+            href="images/kufi/k02.jpg"
+            class="hidden"
+          >
+            <img src="images/kufi/k02.jpg" alt="" />
+          </a>
+        </div>
+
+        <div id="mats-promo" class="md:mr-3">
+          <a
+            class="relative block"
+            href="images/mats/m01.jpg"
+            data-download-url="false"
+            data-sub-html="<h4>Al-Haram style prayer mats</h4><p>Made in Madinah<br>Gift Bag option available</p>"
+          >
+            <div
+              class="bg-gold-700 text-gold-100 rounded-t text-center py-2 uppercase tracking-wide"
+            >
+              Prayer Mats
+            </div>
+            <img
+              class="rounded-b"
+              style="width: 15rem;"
+              src="images/mats/m01.jpg"
+              alt=""
+            />
+            <span
+              class="block absolute bg-gold-800 w-full text-center py-1 uppercase tracking-wide text-sm rounded-b"
+              style="bottom: 0;"
+              >See more</span
+            >
+          </a>
+          <a
+            data-download-url="false"
+            href="images/mats/m02.jpg"
+            class="hidden"
+          >
+            <img src="images/mats/m02.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            href="images/mats/m03.jpg"
+            class="hidden"
+          >
+            <img src="images/mats/m03.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            href="images/mats/m04.jpg"
+            class="hidden"
+          >
+            <img src="images/mats/m04.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            href="images/mats/m05.jpg"
+            class="hidden"
+          >
+            <img src="images/mats/m05.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            href="images/mats/m06.jpg"
+            class="hidden"
+          >
+            <img src="images/mats/m06.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            href="images/mats/m07.jpg"
+            class="hidden"
+          >
+            <img src="images/mats/m07.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            href="images/mats/m08.jpg"
+            class="hidden"
+          >
+            <img src="images/mats/m08.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            href="images/mats/m09.jpg"
+            class="hidden"
+          >
+            <img src="images/mats/m09.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            href="images/mats/m10.jpg"
+            class="hidden"
+          >
+            <img src="images/mats/m10.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            href="images/mats/m11.jpg"
+            class="hidden"
+          >
+            <img src="images/mats/m11.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            href="images/mats/m12.jpg"
+            class="hidden"
+          >
+            <img src="images/mats/m12.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            href="images/mats/m13.jpg"
+            class="hidden"
+          >
+            <img src="images/mats/m13.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            href="images/mats/m14.jpg"
+            class="hidden"
+          >
+            <img src="images/mats/m14.jpg" alt="" />
+          </a>
+        </div>
+
+        <div id="tasabeeh-promo" class="md:mr-3">
+          <a
+            class="relative block"
+            href="images/tasabeeh/t01.jpg"
+            data-download-url="false"
+            data-sub-html="<h4>White Crystal Tasbih</h4><p>99 beads</p>"
+          >
+            <div
+              class="bg-gold-700 text-gold-100 rounded-t text-center py-2 uppercase tracking-wide"
+            >
+              Tasbih
+            </div>
+            <img
+              class="rounded-b"
+              style="width: 15rem;"
+              src="images/tasabeeh/t01.jpg"
+              alt=""
+            />
+            <span
+              class="block absolute bg-gold-800 w-full text-center py-1 uppercase tracking-wide text-sm rounded-b"
+              style="bottom: 0;"
+              >See more</span
+            >
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>White Crystal Tasbih</h4><p>99 beads</p>"
+            href="images/tasabeeh/t02.jpg"
+            class="hidden"
+          >
+            <img src="images/tasabeeh/t02.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>White Crystal Tasbih</h4><p>99 beads</p>"
+            href="images/tasabeeh/t03.jpg"
+            class="hidden"
+          >
+            <img src="images/tasabeeh/t03.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>White Crystal Tasbih</h4><p>99 beads</p>"
+            href="images/tasabeeh/t04.jpg"
+            class="hidden"
+          >
+            <img src="images/tasabeeh/t04.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Black Crystal Tasbih</h4><p>33 beads</p>"
+            href="images/tasabeeh/t05.jpg"
+            class="hidden"
+          >
+            <img src="images/tasabeeh/t05.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Black Crystal Tasbih</h4><p>33 beads</p>"
+            href="images/tasabeeh/t06.jpg"
+            class="hidden"
+          >
+            <img src="images/tasabeeh/t06.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Black Crystal Tasbih</h4><p>33 beads</p>"
+            href="images/tasabeeh/t07.jpg"
+            class="hidden"
+          >
+            <img src="images/tasabeeh/t07.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Silver Crystal Tasbih</h4><p>33 beads</p>"
+            href="images/tasabeeh/t08.jpg"
+            class="hidden"
+          >
+            <img src="images/tasabeeh/t08.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Silver Crystal Tasbih</h4><p>33 beads</p>"
+            href="images/tasabeeh/t09.jpg"
+            class="hidden"
+          >
+            <img src="images/tasabeeh/t09.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Silver Crystal Tasbih</h4><p>33 beads</p>"
+            href="images/tasabeeh/t10.jpg"
+            class="hidden"
+          >
+            <img src="images/tasabeeh/t10.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Crystal Tasbihs in Silver and Black</h4><p>33 beads</p>"
+            href="images/tasabeeh/t11.jpg"
+            class="hidden"
+          >
+            <img src="images/tasabeeh/t11.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Crystal Tasbihs in Silver and Black</h4><p>33 beads</p>"
+            href="images/tasabeeh/t12.jpg"
+            class="hidden"
+          >
+            <img src="images/tasabeeh/t12.jpg" alt="" />
+          </a>
+        </div>
+
+        <div id="counters-promo">
+          <a
+            class="relative block"
+            href="images/counter/c01.jpg"
+            data-download-url="false"
+            data-sub-html="<h4>Clicker Counters</h4><p>Material: Stainless steel</p>"
+          >
+            <div
+              class="bg-gold-700 text-gold-100 rounded-t text-center py-2 uppercase tracking-wide"
+            >
+              Clicker Counters
+            </div>
+            <img
+              class="rounded-b"
+              style="width: 15rem;"
+              src="images/counter/c01.jpg"
+              alt=""
+            />
+            <span
+              class="block absolute bg-gold-800 w-full text-center py-1 uppercase tracking-wide text-sm rounded-b"
+              style="bottom: 0;"
+              >See more</span
+            >
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Clicker Counters</h4><p>Material: Stainless steel</p>"
+            href="images/counter/c02.jpg"
+            class="hidden"
+          >
+            <img src="images/counter/c02.jpg" alt="" />
+          </a>
+          <a
+            data-download-url="false"
+            data-sub-html="<h4>Clicker Counters</h4><p>Material: Stainless steel</p>"
+            href="images/counter/c03.jpg"
+            class="hidden"
+          >
+            <img src="images/counter/c03.jpg" alt="" />
+          </a>
+        </div>
       </div>
     </div>
 
     <script src="vendor/lightgallery/js/lightgallery.min.js"></script>
 
     <script>
-      lightGallery(document.getElementById("promo"));
+      lightGallery(document.getElementById("men-promo"));
+      lightGallery(document.getElementById("boys-promo"));
+      lightGallery(document.getElementById("kaffieh-promo"));
+      lightGallery(document.getElementById("kufi-promo"));
+      lightGallery(document.getElementById("mats-promo"));
+      lightGallery(document.getElementById("tasabeeh-promo"));
+      lightGallery(document.getElementById("counters-promo"));
     </script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
